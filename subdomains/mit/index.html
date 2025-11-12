@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT SaQu Al-Muhajirin - Madrasah Ibtidaiyah Terpadu Narogong</title>
+    <meta name="description" content="MIT SaQu Al-Muhajirin - Program Madrasah Ibtidaiyah Terpadu dengan kurikulum Wadi Mubarak, target hafalan 15 juz saat lulus, lokasi Narogong Bekasi.">
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js for interactivity -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        islamic: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        blue: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-in': 'slideIn 0.8s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideIn: {
+                            '0%': { opacity: '0', transform: 'translateY(50px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Background Patterns */
+        .hero-pattern {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 25%, #2563eb 50%, #1e40af 75%, #1e293b 100%);
+            position: relative;
+        }
+
+        .section-pattern {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        }
+
+        /* Glassmorphism Effects */
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .glass-button {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* 3D Card Effects */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+
+        .card-3d:hover {
+            transform: translateY(-10px) rotateX(5deg);
+        }
+
+        .shadow-3d {
+            box-shadow:
+                0 10px 20px rgba(0, 0, 0, 0.2),
+                0 6px 6px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .shadow-glow {
+            box-shadow:
+                0 10px 30px rgba(59, 130, 246, 0.3),
+                0 0 60px rgba(59, 130, 246, 0.1);
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.4);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(59, 130, 246, 0.6);
+        }
+    </style>
+</head>
+
+<body class="text-gray-800" x-data="{ mobileMenuOpen: false }">
+
+    <!-- Navbar -->
+    <nav class="navbar-glass shadow-xl sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo dan Nama Sekolah -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center">
+                            <div class="bg-blue-600 text-white px-3 py-1 rounded-lg font-bold text-xl">SaQu</div>
+                            <span class="ml-2 text-xl font-semibold text-gray-800">Al-Muhajirin</span>
+                            <div class="ml-3 bg-blue-500 text-white px-2 py-1 rounded-md text-sm font-semibold">MIT</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#beranda" class="text-gray-700 hover:bg-blue-50 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Beranda</a>
+                        <a href="#program" class="text-gray-700 hover:bg-blue-50 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Program</a>
+                        <a href="#kurikulum" class="text-gray-700 hover:bg-blue-50 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Kurikulum</a>
+                        <a href="#fasilitas" class="text-gray-700 hover:bg-blue-50 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Fasilitas</a>
+                        <a href="#pendaftaran" class="text-gray-700 hover:bg-blue-50 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pendaftaran</a>
+                        <a href="https://saqu-almuhajirin.web.id" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">
+                            ← Kembali ke Utama
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition-colors">
+                        <svg x-show="!mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg x-show="mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95" class="md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#beranda" @click="mobileMenuOpen = false" class="text-gray-700 hover:bg-blue-50 hover:text-blue-700 block px-3 py-2 rounded-md text-base font-medium">Beranda</a>
+                <a href="#program" @click="mobileMenuOpen = false" class="text-gray-700 hover:bg-blue-50 hover:text-blue-700 block px-3 py-2 rounded-md text-base font-medium">Program</a>
+                <a href="#kurikulum" @click="mobileMenuOpen = false" class="text-gray-700 hover:bg-blue-50 hover:text-blue-700 block px-3 py-2 rounded-md text-base font-medium">Kurikulum</a>
+                <a href="#fasilitas" @click="mobileMenuOpen = false" class="text-gray-700 hover:bg-blue-50 hover:text-blue-700 block px-3 py-2 rounded-md text-base font-medium">Fasilitas</a>
+                <a href="#pendaftaran" @click="mobileMenuOpen = false" class="text-gray-700 hover:bg-blue-50 hover:text-blue-700 block px-3 py-2 rounded-md text-base font-medium">Pendaftaran</a>
+                <a href="https://saqu-almuhajirin.web.id" @click="mobileMenuOpen = false" class="bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-700">
+                    ← Kembali ke Utama
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative hero-pattern py-20 overflow-hidden">
+        <div class="absolute inset-0 section-pattern opacity-30"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center slide-in">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 float-animation">
+                    MIT SaQu Al-Muhajirin<br>
+                    <span class="text-blue-300">Madrasah Ibtidaiyah Terpadu</span><br>
+                    <span class="text-blue-400">Lokasi Narogong</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-100 mb-8 max-w-4xl mx-auto font-light">
+                    Program setara SD dengan target hafalan 15 juz saat lulus, lokasi strategis di Narogong Bekasi
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#pendaftaran" class="glass-button text-white font-bold py-4 px-8 rounded-lg text-lg shadow-glow card-3d">
+                        Info Pendaftaran
+                    </a>
+                    <a href="#program" class="glass-button text-white font-bold py-4 px-8 rounded-lg text-lg card-3d">
+                        Pelajari Program
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="py-16 glass-dark section-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 slide-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Program Unggulan MIT</h2>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Kurikulum terpadu Diniyah dan Umum dengan fokus hafalan Qur'an dan karakter Islami
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="glass-card card-3d rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-4 float-animation">📚</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Kurikulum Terpadu</h3>
+                    <p class="text-gray-300 text-sm">Diniyah + Umum dalam satu sistem pembelajaran</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card card-3d rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-4 float-animation">🎯</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Target 15 Juz</h3>
+                    <p class="text-gray-300 text-sm">Hafalan 15 juz Al-Qur'an saat lulus SD</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card card-3d rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-4 float-animation">🕌</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Akidah & Akhlak</h3>
+                    <p class="text-gray-300 text-sm">Pendidikan karakter Islami sejak dini</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="glass-card card-3d rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-4 float-animation">🏫</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Usia 6-12 Tahun</h3>
+                    <p class="text-gray-300 text-sm">Kelas 1-6 dengan pembelajaran yang menyenangkan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kurikulum Section -->
+    <section id="kurikulum" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 slide-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Kurikulum Wadi Mubarak</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Mengadopsi kurikulum dari Markaz Wadi Mubarak yang telah teruji dan diakui
+                </p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto rounded mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://placehold.co/600x400/1e40af/ffffff?text=Kurikulum+Wadi+Mubarak" alt="Kurikulum" class="rounded-2xl shadow-lg w-full h-auto">
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Keunggulan Kurikulum</h3>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-500 text-white p-3 rounded-lg mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Metode Tartil dan Tajwid</h4>
+                                <p class="text-gray-700">Pembelajaran Al-Qur'an dengan metode yang benar sesuai kaidah ilmu tajwid</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-500 text-white p-3 rounded-lg mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Hafalan Terstruktur</h4>
+                                <p class="text-gray-700">Program hafalan dengan target yang jelas dan sistem monitoring yang baik</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-500 text-white p-3 rounded-lg mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Murojaah Sistematis</h4>
+                                <p class="text-gray-700">Pengulangan hafalan secara rutin untuk menjaga kualitas hafalan</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-500 text-white p-3 rounded-lg mr-4 flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Terakreditasi</h4>
+                                <p class="text-gray-700">Kurikulum yang diakui dan telah terbukti mencetak generasi Qur'ani</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas Section -->
+    <section id="fasilitas" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 slide-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Fasilitas MIT Narogong</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Fasilitas lengkap untuk mendukung proses pembelajaran yang optimal
+                </p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto rounded mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Fasilitas 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all hover:scale-105 card-3d">
+                    <img src="https://placehold.co/400x250/1e40af/ffffff?text=Ruang+Kelas" alt="Ruang Kelas" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Ruang Kelas Nyaman</h3>
+                        <p class="text-gray-700">Kelas ber-AC dengan kapasitas optimal untuk pembelajaran efektif</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all hover:scale-105 card-3d">
+                    <img src="https://placehold.co/400x250/1e40af/ffffff?text=Masjid" alt="Masjid" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Masjid</h3>
+                        <p class="text-gray-700">Fasilitas sholat dan kegiatan keagamaan yang memadai</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all hover:scale-105 card-3d">
+                    <img src="https://placehold.co/400x250/1e40af/ffffff?text=Perpustakaan" alt="Perpustakaan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Perpustakaan</h3>
+                        <p class="text-gray-700">Koleksi buku Islam dan umum yang lengkap</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all hover:scale-105 card-3d">
+                    <img src="https://placehold.co/400x250/1e40af/ffffff?text=Lapangan" alt="Lapangan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Lapangan Olahraga</h3>
+                        <p class="text-gray-700">Area bermain dan olahraga untuk mendukung tumbuh kembang anak</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 5 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all hover:scale-105 card-3d">
+                    <img src="https://placehold.co/400x250/1e40af/ffffff?text=Lab+Komputer" alt="Lab Komputer" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Lab Komputer</h3>
+                        <p class="text-gray-700">Fasilitas teknologi untuk mendukung pembelajaran modern</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 6 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all hover:scale-105 card-3d">
+                    <img src="https://placehold.co/400x250/1e40af/ffffff?text=Kantin" alt="Kantin" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Kantin Sehat</h3>
+                        <p class="text-gray-700">Menyediakan makanan dan minuman sehat halal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pendaftaran Section -->
+    <section id="pendaftaran" class="py-16 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Penerimaan Peserta Didik Baru MIT</h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Segera daftarkan putra-putri Anda. Kuota terbatas. Hubungi Admin kami:
+                </p>
+                <div class="w-24 h-1 bg-white mx-auto rounded mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- Admin 1 -->
+                <a href="https://wa.me/6285865582944" target="_blank" class="bg-white text-blue-600 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:scale-105 text-center group">
+                    <div class="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.423-.074-.134-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Admin 1</h3>
+                    <p class="text-gray-600 mb-1">Ustadzah Dhea Nuraini</p>
+                    <p class="text-sm text-gray-500">0858-6558-2944</p>
+                    <div class="mt-4 text-blue-600 font-semibold group-hover:text-blue-700">
+                        Hubungi WhatsApp →
+                    </div>
+                </a>
+
+                <!-- Admin 2 -->
+                <a href="https://wa.me/6285779751015" target="_blank" class="bg-white text-blue-600 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all hover:scale-105 text-center group">
+                    <div class="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.423-.074-.134-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Admin 2</h3>
+                    <p class="text-gray-600 mb-1">Ustadz Manin Zaelani</p>
+                    <p class="text-sm text-gray-500">0857-7975-1015</p>
+                    <div class="mt-4 text-blue-600 font-semibold group-hover:text-blue-700">
+                        Hubungi WhatsApp →
+                    </div>
+                </a>
+
+                <!-- Download Brosur -->
+                <div class="bg-blue-800 bg-opacity-50 p-6 rounded-2xl text-center border border-blue-500">
+                    <div class="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Download Brosur MIT</h3>
+                    <p class="text-blue-100 mb-4">Informasi lengkap program MIT</p>
+                    <a href="../files/brosur-penerimaan-santri-baru-2026-2027.jpeg" download class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors w-full inline-block">
+                        Download Brosur
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak & Lokasi -->
+    <section id="kontak" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Kontak & Lokasi MIT Narogong</h2>
+                <p class="text-xl text-gray-600">
+                    Hubungi kami untuk informasi lebih lanjut
+                </p>
+                <div class="w-24 h-1 bg-blue-600 mx-auto rounded mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Kontak Info -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Hubungi Kami</h3>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-lg mr-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Alamat</h4>
+                                <p class="text-gray-700">
+                                    Jl. Babakan Senggol, RT.002/RW.006<br>
+                                    Kel. Mustikasari, Kec. Mustikajaya<br>
+                                    Kota Bekasi, Jawa Barat 17157
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-lg mr-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Telepon</h4>
+                                <p class="text-gray-700">
+                                    Ustadzah Dhea: 0858-6558-2944<br>
+                                    Ustadz Manin: 0857-7975-1015
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-lg mr-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
+                                <p class="text-gray-700">info@saqu-almuhajirin.web.id</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-lg mr-4">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Jam Operasional</h4>
+                                <p class="text-gray-700">
+                                    Senin - Jumat: 07.00 - 14.00 WIB<br>
+                                    Sabtu: 07.00 - 11.00 WIB<br>
+                                    Minggu & Hari Libur: Tutup
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Lokasi Kami</h3>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d107.064416!3d-6.459423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6994e5e5e5e5e5%3A0x5e5e5e5e5e5e5e5!2sJl.+Babakan+Senggol%2C+Mustikasari%2C+Mustikajaya%2C+Bekasi+City%2C+West+Java!5e0!3m2!1sen!2sid!4v1234567890"
+                            width="100%"
+                            height="400"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            class="w-full h-96 rounded-xl">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-6">
+                    <div class="bg-blue-600 text-white px-3 py-1 rounded-lg font-bold text-xl">SaQu</div>
+                    <span class="ml-2 text-xl font-semibold">Al-Muhajirin</span>
+                    <div class="ml-3 bg-blue-500 text-white px-2 py-1 rounded-md text-sm font-semibold">MIT</div>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    Madrasah Ibtidaiyah Terpadu - Target 15 Juz Saat Lulus
+                </p>
+                <p class="text-gray-400 mb-6">
+                    📍 Lokasi: Jl. Babakan Senggol, Narogong, Bekasi
+                </p>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="https://saqu-almuhajirin.web.id" class="text-gray-400 hover:text-white transition-colors">
+                        ← Kembali ke Website Utama
+                    </a>
+                    <a href="https://taud.saqu-almuhajirin.web.id" class="text-gray-400 hover:text-white transition-colors">
+                        Kunjungi Website TAUD →
+                    </a>
+                </div>
+                <div class="border-t border-gray-800 pt-6">
+                    <p class="text-gray-500 text-sm">
+                        &copy; 2025 SaQu (Sahabat Qur'an) Al-Muhajirin. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
