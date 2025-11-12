@@ -45,6 +45,13 @@ Membuat landing page profesional untuk lembaga pendidikan Islam (Manhaj Salaf) y
 - **DOKUMENTASI.md** - Project documentation
 - **TRANSCRIPT_HISTORI.md** - Complete conversation history
 
+### Arsitektur Multi-Subdomain (Phase 2 Planning):
+- **Domain Utama:** saqu-almuhajirin.web.id (Landing page utama - saat ini)
+- **Subdomain TAUD:** taud.saqu-almuhajirin.web.id
+  - Cabang Induk (Narogong): taud.saqu-almuhajirin.web.id/cabang-1
+  - Cabang Baitul Jannah (Mustikasari): taud.saqu-almuhajirin.web.id/cabang-2
+- **Subdomain MIT:** mit.saqu-almuhajirin.web.id (Website khusus MIT Narogong)
+
 ### Fitur Khusus:
 - **Glassmorphism Effects** - Modern glass effects dengan backdrop-filter
 - **3D Transforms** - Card hover effects dengan perspective
@@ -147,11 +154,26 @@ Membuat landing page profesional untuk lembaga pendidikan Islam (Manhaj Salaf) y
 - ✅ SSL certificate setup
 - ✅ Analytics integration ready
 
-## 🔮 Next Steps (Phase 2)
+## 🔮 Next Steps (Phase 2) - Multi-Subdomain Architecture
 
-### Potential Enhancements:
+### Prioritas Utama: Arsitektur Multi-Subdomain
+1. **TAUD Subdomain Development**
+   - taud.saqu-almuhajirin.web.id dengan 2 cabang option
+   - Cabang Induk Narogong: /cabang-1 (website induk utama)
+   - Cabang Baitul Jannah Mustikasari: /cabang-2 (cabang kedua)
+
+2. **MIT Subdomain Development**
+   - mit.saqu-almuhajirin.web.id (website khusus MIT Narogong)
+   - Konten spesifik program MIT dengan detail lengkap
+
+3. **Navigation & Cross-Linking**
+   - Link dari domain utama ke subdomain TAUD dan MIT
+   - Navigation antar cabang TAUD
+   - Consistent design theme across all domains
+
+### Additional Enhancements:
 1. **Dynamic Content:** CMS integration untuk update konten
-2. **Form Pendaftaran:** Interactive registration form
+2. **Form Pendaftaran:** Interactive registration form per program
 3. **Photo Upload:** Replace placeholder images dengan real photos
 4. **Multi-language:** English/Indonesian version
 5. **Advanced SEO:** Schema markup, sitemap generation
