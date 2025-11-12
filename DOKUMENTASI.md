@@ -35,9 +35,15 @@ Membuat landing page profesional untuk lembaga pendidikan Islam (Manhaj Salaf) y
 5. **Kurikulum** - Kurikulum Wadi Mubarak dan keunggulan
 6. **Galeri** - 6 gambar dengan image viewer modal
 7. **Testimoni** - 2 card testimoni wali santri
-8. **Pendaftaran** - 2 kontak WhatsApp + download brosur
+8. **Pendaftaran** - 2 kontak WhatsApp + download brosur (real file)
 9. **Kontak & Lokasi** - Informasi lengkap + Google Maps
 10. **Footer** - Copyright dan social media links
+
+### Files & Assets:
+- **index.html** - Main landing page file
+- **files/brosur-penerimaan-santri-baru-2026-2027.jpeg** - Real brosur untuk download (235KB)
+- **DOKUMENTASI.md** - Project documentation
+- **TRANSCRIPT_HISTORI.md** - Complete conversation history
 
 ### Fitur Khusus:
 - **Glassmorphism Effects** - Modern glass effects dengan backdrop-filter
@@ -164,8 +170,22 @@ Membuat landing page profesional untuk lembaga pendidikan Islam (Manhaj Salaf) y
 *AI-Powered Web Development Assistant*
 *Session Date: 13 November 2025*
 
+## 📝 Changelog
+
+### Version 1.1.0 - 13 November 2025
+- **Added Real Brosur Download** - Integrated brosur-penerimaan-santri-baru-2026-2027.jpeg (235KB)
+- **Created Files Directory** - Organized assets in `/files/` folder
+- **Updated Download Functionality** - Changed from placeholder PDF to real JPEG brosur
+- **Improved User Experience** - Direct download with proper file handling
+
+### Version 1.0.0 - 13 November 2025
+- **Initial Release** - Complete landing page with glassmorphism & 3D effects
+- **All Sections Implemented** - 10 sections with full content
+- **Responsive Design** - Mobile, tablet, desktop optimized
+- **Documentation** - Complete project documentation and history
+
 ---
 
 *Document created: 13 November 2025*
 *Last updated: 13 November 2025*
-*Version: 1.0.0*
+*Current Version: 1.1.0*
