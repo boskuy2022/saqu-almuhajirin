@@ -112,6 +112,33 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
+        /* Program Section - Enhanced Elegance */
+        .program-section {
+            background: linear-gradient(135deg,
+                rgba(29, 78, 216, 0.95) 0%,
+                rgba(30, 64, 175, 0.9) 50%,
+                rgba(37, 99, 235, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg,
+                rgba(59, 130, 246, 0.05) 0%,
+                transparent 50%,
+                rgba(59, 130, 246, 0.05) 100%);
+            pointer-events: none;
+        }
+
         .glass-card {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
@@ -279,7 +306,7 @@
     </section>
 
     <!-- Program Section -->
-    <section id="program" class="py-16 glass-dark section-pattern">
+    <section id="program" class="py-16 program-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 slide-in">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Program Unggulan MIT</h2>
