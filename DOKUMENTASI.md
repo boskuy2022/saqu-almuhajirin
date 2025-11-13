@@ -159,22 +159,30 @@ Membuat landing page profesional untuk lembaga pendidikan Islam (Manhaj Salaf) y
 ### ✅ Arsitektur Multi-Subdomain Selesai Diimplementasikan:
 1. **TAUD Subdomain Development - COMPLETED**
    - ✅ taud.saqu-almuhajirin.web.id dengan 2 cabang options
-   - ✅ Cabang Induk Narogong: /cabang-1 (website induk utama)
-   - ✅ Cabang Baitul Jannah Mustikasari: /cabang-2 (cabang kedua)
+   - ✅ Cabang Induk Narogong: website dengan logo dan brosur khusus
+   - ✅ Cabang Baitul Jannah Mustikasari: brosur umum untuk Baitul Jannah
    - ✅ Green theme design dengan glassmorphism effects
-   - ✅ Navigation khusus program TAUD
+   - ✅ Logo TAUD integration (logo-TAUD-SaQu.jpeg - 147KB)
+   - ✅ Dual brochure download system
 
 2. **MIT Subdomain Development - COMPLETED**
    - ✅ mit.saqu-almuhajirin.web.id (website khusus MIT Narogong)
    - ✅ Konten spesifik program MIT dengan detail lengkap
    - ✅ Blue theme design dengan fasilitas lengkap
    - ✅ Informasi lokasi spesifik MIT Narogong
+   - ✅ Terminology correction: MIT = Madrasah Ibtidaiyah Tahfidz
 
 3. **Navigation & Cross-Linking - COMPLETED**
    - ✅ Link dari domain utama ke subdomain TAUD dan MIT
-   - ✅ Navigation antar cabang TAUD (framework ready)
    - ✅ Consistent design theme across all domains
    - ✅ Cross-linking functionality implemented
+   - ✅ Fixed broken logo dan download links di subdomain
+
+4. **Brand Integration & Content Updates - COMPLETED**
+   - ✅ Logo TAUD integration di navbar dan footer
+   - ✅ Dual brochure system di website utama dan TAUD subdomain
+   - ✅ Administrative boundaries correction: Narogong, Kec. Rawalumbu Kota Bekasi
+   - ✅ MIT terminology correction across all pages
 
 ### 📁 File Structure Created:
 ```
@@ -214,11 +222,20 @@ Membuat landing page profesional untuk lembaga pendidikan Islam (Manhaj Salaf) y
 
 ## 📝 Changelog
 
+### Version 2.1.0 - 13 November 2025
+- **MIT Terminology Correction** - Fixed MIT = Madrasah Ibtidaiyah Tahfidz (bukan Terpadu)
+- **Comprehensive Documentation Update** - Updated README.md, DOKUMENTASI.md, and TRANSCRIPT_HISTORI.md
+- **Brand Integration Complete** - Logo TAUD integration across all platforms
+- **Dual Brochure System** - Complete download system for both brosur types in all domains
+- **Administrative Boundaries Correction** - Narogong, Kec. Rawalumbu Kota Bekasi (bukan Mustikajaya)
+- **Performance Optimization** - Fixed broken links and optimized file paths for subdomains
+- **Cross-Platform Consistency** - Ensured consistent branding and functionality across all domains
+
 ### Version 2.0.0 - 13 November 2025
 - **Multi-Subdomain Architecture** - Complete implementation of TAUD and MIT subdomains
 - **TAUD Subdomain** - taud.saqu-almuhajirin.web.id with 2 cabang options
-  - Cabang Induk Narogong: /cabang-1
-  - Cabang Baitul Jannah Mustikasari: /cabang-2
+  - Cabang Induk Narogong: website with dedicated logo and brosur
+  - Cabang Baitul Jannah Mustikasari: brosur umum untuk Baitul Jannah
 - **MIT Subdomain** - mit.saqu-almuhajirin.web.id (dedicated MIT Narogong site)
 - **Cross-Navigation** - Complete linking system between all domains
 - **Color-Coded Design** - Green theme for TAUD, Blue theme for MIT
